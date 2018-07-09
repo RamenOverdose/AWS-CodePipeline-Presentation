@@ -1,0 +1,120 @@
+body {background-color: white}
+
+#bigHeader {
+  font-family: Oxygen, sans-serif;
+  font-size: 275%;
+  text-align: center;
+  margin-bottom: 4%;
+}
+
+ul {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  list-style-type: none;
+  font-size: 125%;
+  float: right;
+  background-color: lightgrey;
+  margin: 0 1% 0 0;
+  padding: 0;
+}
+
+    .navT {
+      font-family: Oxygen, sans-serif;
+      text-decoration: none;
+      color: black;
+      display: block;
+      padding: 5% 5% 5% 5%;
+    }
+
+    .navT:hover {
+      background-color: #555555;
+      color: white;
+    }
+
+#backgroundDiv {
+  width: 100%;
+  height: 100vh;
+}
+
+    .backgroundHeaders {
+      font-family: Oxygen, sans-serif;
+      font-size: 175%;
+      color: #000080;
+    }
+
+    .backgroundContent {
+      font-family: Oxygen, sans-serif;
+      font-size: 125%;
+      margin-bottom: 5%;
+      margin-left: 1%;
+    }
+
+#pipelineDiv {
+  width: 100%;
+  height: 100vh;
+}
+
+    #pipelineHeader {
+      font-family: Oxygen, sans-serif;
+      font-size: 275%;
+      text-align: center;
+      color: #000080;
+    }
+
+    .pipelineContent {
+      font-family: Oxygen, sans-serif;
+      text-align: center;
+      font-size: 125%;
+      margin-bottom: 4%;
+    }
+
+    #CPImage {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 4%;
+      width: 55%;
+    }
+
+    #beforePL {
+      font-family: Oxygen, sans-serif;
+      text-align: center;
+      font-size: 150%;
+      color: #3498DB;
+      margin-bottom: 0;
+    }
+
+    .downArrows {
+      text-align: center;
+      font-size: 250%;
+    }
+
+#sourceDiv {
+  width: 100%;
+  height: 100vh;
+}
+
+#buildDiv {
+  width: 100%;
+  height: 100vh;
+}
+
+#deployDiv {
+  width: 100%;
+  height: 100vh;
+}
+
+.PLStages {
+  text-align: center;
+  font-family: Oxygen, sans-serif;
+  font-size: 175%;
+  margin-bottom: 3%;
+  color: #000080;
+}
+
+.PLContent {
+  font-family: Oxygen, sans-serif;
+  font-size: 125%;
+  margin-left: 1%;
+}

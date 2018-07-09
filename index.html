@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang= "en">
+<head>
+  <meta charset = "utf-8">
+  <title>AWS CodePipeline</title>
+  <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+  <link rel = "stylesheet" href = "style.css">
+</head>
+
+<body>
+  <header>
+    <h1 id = "bigHeader">My Understanding of AWS CodePipeline</h1>
+  </header>
+
+  <ul>
+    <li><a href = "#backgroundDiv" class = "navT">Background</a></li>
+    <li><a href = "#pipelineDiv" class = "navT">Introducing the Pipeline</a></li>
+    <li><a href = "#sourceDiv" class = "navT">Source</a></li>
+    <li><a href = "#buildDiv" class = "navT">Build</a></li>
+    <li><a href = "#deployDiv" class = "navT">Deploy</a></li>
+  </ul>
+
+  <div id = "backgroundDiv">
+    <h2 class = "backgroundHeaders">A Hypothetical Problem</h2>
+      <p class = "backgroundContent">I am working on a project with three other team members.<br>
+                   I recently fixed a bug...<br>
+                   &emsp; ...but I have to manually build it, run through all the tests, and push to production,<br>
+                   &emsp; all while making sure that my team members are in sync.<br>
+                   Making revisions is slow. A small change takes a long time.<br>
+                   I would like to be more efficient.<br></p>
+
+    <h2 class = "backgroundHeaders">CI/CD (continuous integration/continuous delivery)</h2>
+      <p class = "backgroundContent"><b>Continuous Integration</b><br>
+                   &emsp; Software development practice where code is merged into a central repository<br>
+                   &emsp; Project is then automatically built and tested<br>
+                   &emsp; Must be AUTOMATED and INTEGRATED FREQUENTLY<br>
+                   &emsp; Finds bugs quicker, delivers faster, more efficient<br><br>
+                   <b>Continuous Delivery</b><br>
+                   &emsp; Deploys code changes to building/testing or production environment<br>
+                   &emsp; Automates almost all of the software deployment process<br>
+                   &emsp; Pushing to production requires manual approval<br></p>
+  </div>
+
+  <div id = "pipelineDiv">
+    <h1 id = "pipelineHeader">Introducing AWS CodePipeline</h1>
+      <p class = "pipelineContent">Harnesses the power of CI/CD<br>
+                   Automated building, testing, deployment<br>
+                   Can use multitude of tools for each section of the pipeline<br>
+                   Completely customizable<br></p>
+
+      <img src = "CPImage.png" alt = "CPImage" id = "CPImage">
+
+      <p class = "pipelineContent">Let us run through the pipeline.</p>
+  </div>
+
+  <div id = "sourceDiv">
+    <p id = "beforePL"><b>&#60; Source Code &#62;</b></p>
+    <div class = "downArrows">&#8595;<br>&#8595;<br>&#8595;<br></div>
+
+    <h2 id = "source" class = "PLStages">Stage 1: Source</h2>
+    <p class = "PLContent"> This is the initial stage of the pipeline where code is updated and committed to a repository.<br>
+                            You can use AWS CodeCommit, Github, or AWS S3 to version and store your code.<br>
+                            CodeCommit is preferred because it is scalable, secure, and can integrate with git.<br>
+                            CodeCommit requires authentication to use, which can be configured in the AWS IAM console.<br>
+    </p>
+  </div>
+
+  <div id = "buildDiv">
+    <h2 id = "build" class = "PLStages">Stage 2: Build</h2>
+    <p class = "PLContent"> This is the stage where source code is built, tested, and packaged.<br>
+                            &emsp; The build specifications can be denoted in a buildspec.yml file or inputted manually.<br>
+                            &emsp; Dependencies that need to be imported can be specified.<br>
+                            &emsp; A custom build environment can be created.<br><br>
+                            During the build, a temporary container is created with the specified runtime characteristics.<br>
+                            &emsp; The project is then run in the container.<br><br>
+                            An artifact is generated at the end of the build, which is uploaded to an S3 bucket.<br>
+                            &emsp; The specifications for the artifact are denoted in a JSON or YAML file.<br>
+                            &emsp; Properties of the artifact include name, location, packaging, and type.<br>
+    </p>
+  </div>
+
+  <div id = "deployDiv">
+    <h2 id = "deploy" class = "PLStages">Stage 3: Deploy</h2>
+    <p class = "PLContent"> This is the stage where the built code is deployed to EC2 instances or Lambda functions.<br>
+                            &emsp; A deployment configuration (set of rules and conditions) must be specified.<br>
+                            &emsp; A deployment group (set of individual instances targeted for deployment) also must be specified.<br>
+                            &emsp; Each deployment group can be used for a specific task, such as testing, staging, production, etc.<br><br>
+                            Deployment is where code is installed to instances. AWS CodeDeploy supports two types of deployments.<br>
+                            &emsp; In-place Deployment: running application is stopped, latest application revision is installed, new version is started.<br>
+                            &emsp; Blue/Green Deployment: Instances are replaced by another set of instances, traffic is shifted<br><br>
+                            An application must be created, which is a container that ensures the correct revision and deployment configuration are selected.<br>
+                            &emsp; Can be created through the console, AWS CLI, CodeDeploy API's, or a CloudFormation template.<br>
+                            &emsp; An application revision is updated code, which is pushed to AWS S3 or Github before being deployed.<br>
+                            &emsp; An AppSpec file can be created, which contains instructions about the Lambdas to be deployed.<br><br>
+                            AWS CloudFormation can be used to facilitate the deployment process and configure stack resources.<br>
+                            &emsp; A stack is a collection of AWS resources, defined by its CloudFormation template.<br>
+                            &emsp; Stacks can be built for different purposes, including testing and production.<br>
+
+    </p>
+  </div>
+
+
+</body>
+</html>
